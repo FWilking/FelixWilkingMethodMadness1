@@ -17,13 +17,14 @@ public class FelixWilkingLib {
     }
     public static String cypher(String plaintext, String key){
         int i = 0;
-        String keytext = "";
+        String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String cyphertext = "";
         while(i<plaintext.length()){
-            plaintext.substring(i,i+1).compareTo(key.substring(i%key.length()))
+            int letter = plaintext.substring(i,i+1).compareTo(key.substring(i%key.length(),i%key.length()+1));
+            cyphertext += alpha.substring(letter+24,letter+25);
             i++;
         }
-        return keytext;
+        return cyphertext;
 
     }
 }
